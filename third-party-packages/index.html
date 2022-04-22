@@ -1,0 +1,1257 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The little ASGI library that shines.">
+      
+      
+      
+        <link rel="canonical" href="https://www.starlette.io/third-party-packages/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>Third Party Packages - Starlette</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backports" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Starlette" class="md-header__button md-logo" aria-label="Starlette" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Starlette
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Third Party Packages
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/encode/starlette" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    encode/starlette
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!-- Determine class according to configuration -->
+ 
+ 
+ 
+
+ <!-- Main navigation -->
+ <nav
+   class="md-nav md-nav--primary"
+   aria-label="Navigation"
+   data-md-level="0"
+ >
+
+   <!-- Site title -->
+   <label class="md-nav__title" for="__drawer">
+     <a
+       href=".."
+       title="Starlette"
+       class="md-nav__button md-logo"
+       aria-label="Starlette"
+       data-md-component="logo"
+     >
+       
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+     </a>
+     Starlette
+   </label>
+
+   <!-- Repository information -->
+   
+     <div class="md-nav__source">
+       <a href="https://github.com/encode/starlette" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    encode/starlette
+  </div>
+</a>
+     </div>
+   
+
+   <!-- Render item list -->
+   <ul class="md-nav__list" data-md-scrollfix>
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../applications/" class="md-nav__link">
+        Applications
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../responses/" class="md-nav__link">
+        Responses
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websockets/" class="md-nav__link">
+        WebSockets
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing/" class="md-nav__link">
+        Routing
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../endpoints/" class="md-nav__link">
+        Endpoints
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../middleware/" class="md-nav__link">
+        Middleware
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../staticfiles/" class="md-nav__link">
+        Static Files
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        Templates
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphql/" class="md-nav__link">
+        GraphQL
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/" class="md-nav__link">
+        API Schemas
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../background/" class="md-nav__link">
+        Background Tasks
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server-push/" class="md-nav__link">
+        Server Push
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testclient/" class="md-nav__link">
+        Test Client
+      </a>
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Third Party Packages
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Third Party Packages
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backports" class="md-nav__link">
+    Backports
+  </a>
+  
+    <nav class="md-nav" aria-label="Backports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-35-port" class="md-nav__link">
+    Python 3.5 port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authlib" class="md-nav__link">
+    Authlib
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channelbox" class="md-nav__link">
+    ChannelBox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imia" class="md-nav__link">
+    Imia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mangum" class="md-nav__link">
+    Mangum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nejma" class="md-nav__link">
+    Nejma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scout-apm" class="md-nav__link">
+    Scout APM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectree" class="md-nav__link">
+    SpecTree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-apispec" class="md-nav__link">
+    Starlette APISpec
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-context" class="md-nav__link">
+    Starlette Context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-cramjam" class="md-nav__link">
+    Starlette Cramjam
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-oauth2-api" class="md-nav__link">
+    Starlette OAuth2 API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-prometheus" class="md-nav__link">
+    Starlette Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-wtf" class="md-nav__link">
+    Starlette WTF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starsessions" class="md-nav__link">
+    Starsessions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webargs-starlette" class="md-nav__link">
+    webargs-starlette
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decorouter" class="md-nav__link">
+    DecoRouter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frameworks" class="md-nav__link">
+    Frameworks
+  </a>
+  
+    <nav class="md-nav" aria-label="Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastapi" class="md-nav__link">
+    FastAPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flama" class="md-nav__link">
+    Flama
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#greppo" class="md-nav__link">
+    Greppo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responder" class="md-nav__link">
+    Responder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-apps" class="md-nav__link">
+    Starlette-apps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dark-star" class="md-nav__link">
+    Dark Star
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xpresso" class="md-nav__link">
+    Xpresso
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apiman" class="md-nav__link">
+    Apiman
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+     
+       
+       
+       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+     
+   </ul>
+
+   <ul class="md-nav__list" data-md-scrollfix style="padding-top: 15px; padding-left: 10px">
+     <div>
+       <a href="https://fastapi.tiangolo.com"><img src="/sponsors/fastapi.png" width=150px style=></img></a>
+     </div>
+   </ul>
+ </nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backports" class="md-nav__link">
+    Backports
+  </a>
+  
+    <nav class="md-nav" aria-label="Backports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-35-port" class="md-nav__link">
+    Python 3.5 port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authlib" class="md-nav__link">
+    Authlib
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channelbox" class="md-nav__link">
+    ChannelBox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imia" class="md-nav__link">
+    Imia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mangum" class="md-nav__link">
+    Mangum
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nejma" class="md-nav__link">
+    Nejma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scout-apm" class="md-nav__link">
+    Scout APM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectree" class="md-nav__link">
+    SpecTree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-apispec" class="md-nav__link">
+    Starlette APISpec
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-context" class="md-nav__link">
+    Starlette Context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-cramjam" class="md-nav__link">
+    Starlette Cramjam
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-oauth2-api" class="md-nav__link">
+    Starlette OAuth2 API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-prometheus" class="md-nav__link">
+    Starlette Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-wtf" class="md-nav__link">
+    Starlette WTF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starsessions" class="md-nav__link">
+    Starsessions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webargs-starlette" class="md-nav__link">
+    webargs-starlette
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decorouter" class="md-nav__link">
+    DecoRouter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frameworks" class="md-nav__link">
+    Frameworks
+  </a>
+  
+    <nav class="md-nav" aria-label="Frameworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastapi" class="md-nav__link">
+    FastAPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flama" class="md-nav__link">
+    Flama
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#greppo" class="md-nav__link">
+    Greppo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responder" class="md-nav__link">
+    Responder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starlette-apps" class="md-nav__link">
+    Starlette-apps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dark-star" class="md-nav__link">
+    Dark Star
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xpresso" class="md-nav__link">
+    Xpresso
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apiman" class="md-nav__link">
+    Apiman
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Third Party Packages</h1>
+
+<p>Starlette has a rapidly growing community of developers, building tools that integrate into Starlette, tools that depend on Starlette, etc.</p>
+<p>Here are some of those third party packages:</p>
+<h2 id="backports">Backports</h2>
+<h3 id="python-35-port">Python 3.5 port</h3>
+<p><a href="https://github.com/em92/starlette" target="_blank">GitHub</a></p>
+<h2 id="plugins">Plugins</h2>
+<h3 id="authlib">Authlib</h3>
+<p><a href="https://github.com/lepture/Authlib" target="_blank">GitHub</a> |
+<a href="https://docs.authlib.org/en/latest/" target="_blank">Documentation</a></p>
+<p>The ultimate Python library in building OAuth and OpenID Connect clients and servers. Check out how to integrate with <a href="https://docs.authlib.org/en/latest/client/starlette.html">Starlette</a>.</p>
+<h3 id="channelbox">ChannelBox</h3>
+<p><a href="https://github.com/Sobolev5/channel-box" target="_blank">GitHub</a></p>
+<p>Another solution for websocket broadcast. Send messages to channel groups from any part of your code.
+Checkout <a href="https://channel-box.andrey-sobolev.ru/" target="_blank">MySimpleChat</a>, a simple chat application built using <code>channel-box</code> and <code>starlette</code>.</p>
+<h3 id="imia">Imia</h3>
+<p><a href="https://github.com/alex-oleshkevich/imia" target="_blank">GitHub</a></p>
+<p>An authentication framework for Starlette with pluggable authenticators and login/logout flow.</p>
+<h3 id="mangum">Mangum</h3>
+<p><a href="https://github.com/erm/mangum" target="_blank">GitHub</a></p>
+<p>Serverless ASGI adapter for AWS Lambda &amp; API Gateway.</p>
+<h3 id="nejma">Nejma</h3>
+<p><a href="https://github.com/taoufik07/nejma" target="_blank">GitHub</a></p>
+<p>Manage and send messages to groups of channels using websockets.
+Checkout <a href="https://github.com/taoufik07/nejma-chat" target="_blank">nejma-chat</a>, a simple chat application built using <code>nejma</code> and <code>starlette</code>.</p>
+<h3 id="scout-apm">Scout APM</h3>
+<p><a href="https://github.com/scoutapp/scout_apm_python" target="_blank">GitHub</a></p>
+<p>An APM (Application Performance Monitoring) solution that can
+instrument your application to find performance bottlenecks.</p>
+<h3 id="spectree">SpecTree</h3>
+<p><a href="https://github.com/0b01001001/spectree" target="_blank">GitHub</a></p>
+<p>Generate OpenAPI spec document and validate request &amp; response with Python annotations. Less boilerplate code(no need for YAML).</p>
+<h3 id="starlette-apispec">Starlette APISpec</h3>
+<p><a href="https://github.com/Woile/starlette-apispec" target="_blank">GitHub</a></p>
+<p>Simple APISpec integration for Starlette.
+Document your REST API built with Starlette by declaring OpenAPI (Swagger)
+schemas in YAML format in your endpoint's docstrings.</p>
+<h3 id="starlette-context">Starlette Context</h3>
+<p><a href="https://github.com/tomwojcik/starlette-context" target="_blank">GitHub</a></p>
+<p>Middleware for Starlette that allows you to store and access the context data of a request.
+Can be used with logging so logs automatically use request headers such as x-request-id or x-correlation-id.</p>
+<h3 id="starlette-cramjam">Starlette Cramjam</h3>
+<p><a href="https://github.com/developmentseed/starlette-cramjam" target="_blank">GitHub</a></p>
+<p>A Starlette middleware that allows <strong>brotli</strong>, <strong>gzip</strong> and <strong>deflate</strong> compression algorithm with a minimal requirements.</p>
+<h3 id="starlette-oauth2-api">Starlette OAuth2 API</h3>
+<p><a href="https://gitlab.com/jorgecarleitao/starlette-oauth2-api" target="_blank">GitLab</a></p>
+<p>A starlette middleware to add authentication and authorization through JWTs.
+It relies solely on an auth provider to issue access and/or id tokens to clients.</p>
+<h3 id="starlette-prometheus">Starlette Prometheus</h3>
+<p><a href="https://github.com/perdy/starlette-prometheus" target="_blank">GitHub</a></p>
+<p>A plugin for providing an endpoint that exposes <a href="https://prometheus.io/">Prometheus</a> metrics based on its <a href="https://github.com/prometheus/client_python">official python client</a>.</p>
+<h3 id="starlette-wtf">Starlette WTF</h3>
+<p><a href="https://github.com/muicss/starlette-wtf" target="_blank">GitHub</a></p>
+<p>A simple tool for integrating Starlette and WTForms. It is modeled on the excellent Flask-WTF library.</p>
+<h3 id="starsessions">Starsessions</h3>
+<p><a href="https://github.com/alex-oleshkevich/starsessions" target="_blank">GitHub</a></p>
+<p>An alternate session support implementation with customizable storage backends.</p>
+<h3 id="webargs-starlette">webargs-starlette</h3>
+<p><a href="https://github.com/sloria/webargs-starlette" target="_blank">GitHub</a></p>
+<p>Declarative request parsing and validation for Starlette, built on top
+of <a href="https://github.com/marshmallow-code/webargs">webargs</a>.</p>
+<p>Allows you to parse querystring, JSON, form, headers, and cookies using
+type annotations.</p>
+<h3 id="decorouter">DecoRouter</h3>
+<p><a href="https://github.com/MrPigss/DecoRouter" target="_blank">GitHub</a></p>
+<p>FastAPI style routing for Starlette.</p>
+<p>Allows you to use decorators to generate routing tables.</p>
+<h2 id="frameworks">Frameworks</h2>
+<h3 id="fastapi">FastAPI</h3>
+<p><a href="https://github.com/tiangolo/fastapi" target="_blank">GitHub</a> |
+<a href="https://fastapi.tiangolo.com/" target="_blank">Documentation</a></p>
+<p>High performance, easy to learn, fast to code, ready for production web API framework.
+Inspired by <strong>APIStar</strong>'s previous server system with type declarations for route parameters, based on the OpenAPI specification version 3.0.0+ (with JSON Schema), powered by <strong>Pydantic</strong> for the data handling.</p>
+<h3 id="flama">Flama</h3>
+<p><a href="https://github.com/perdy/flama/" target="_blank">GitHub</a> |
+<a href="https://flama.perdy.io/" target="_blank">Documentation</a></p>
+<p>Formerly Starlette API.</p>
+<p>Flama aims to bring a layer on top of Starlette to provide an <strong>easy to learn</strong> and <strong>fast to develop</strong> approach for building <strong>highly performant</strong> GraphQL and REST APIs. In the same way of Starlette is, Flama is a perfect option for developing <strong>asynchronous</strong> and <strong>production-ready</strong> services.</p>
+<h3 id="greppo">Greppo</h3>
+<p><a href="https://github.com/greppo-io/greppo" target="_blank">GitHub</a> |
+<a href="https://docs.greppo.io/" target="_blank">Documentation</a></p>
+<p>A Python framework for building geospatial dashboards and web-applications.</p>
+<p>Greppo is an open-source Python framework that makes it easy to build geospatial dashboards and web-applications. It provides a toolkit to quickly integrate data, algorithms, visualizations and UI for interactivity. It provides APIs to the update the variables in the backend, recompute the logic, and reflect the changes in the frontend (data mutation hook).</p>
+<h3 id="responder">Responder</h3>
+<p><a href="https://github.com/taoufik07/responder" target="_blank">GitHub</a> |
+<a href="https://python-responder.org/en/latest/" target="_blank">Documentation</a></p>
+<p>Async web service framework. Some Features: flask-style route expression,
+yaml support, OpenAPI schema generation, background tasks, graphql.</p>
+<h3 id="starlette-apps">Starlette-apps</h3>
+<p>Roll your own framework with a simple app system, like <a href="https://gdaps.readthedocs.io/en/latest/">Django-GDAPS</a> or <a href="https://cakephp.org/">CakePHP</a>.</p>
+<p><a href="https://github.com/yourlabs/starlette-apps" target="_blank">GitHub</a></p>
+<h3 id="dark-star">Dark Star</h3>
+<p>A simple framework to help minimise the code needed to get HTML to the browser. Changes your file paths into Starlette routes and puts your view code right next to your template. Includes support for <a href="https://htmx.org">htmx</a> to help enhance your frontend.</p>
+<p><a href="https://lllama.github.io/dark-star" target="_blank">Docs</a>
+<a href="https://github.com/lllama/dark-star" target="_blank">GitHub</a></p>
+<h3 id="xpresso">Xpresso</h3>
+<p>A flexible and extendable web framework built on top of Starlette, Pydantic and <a href="https://github.com/adriangb/di">di</a>.</p>
+<p><a href="https://github.com/adriangb/xpresso" target="_blank">GitHub</a> |
+<a href=https://xpresso-api.dev/" target="_blank">Documentation</a></p>
+<h3 id="apiman">Apiman</h3>
+<p>An extension to integrate Swagger/OpenAPI document easily for Starlette project and provide <a href="http://swagger.io/swagger-ui/">SwaggerUI</a> and <a href="https://rebilly.github.io/ReDoc/">RedocUI</a>.</p>
+<p><a href="https://github.com/strongbugman/apiman" target="_blank">GitHub</a></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../testclient/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Test Client" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Test Client
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../release-notes/" class="md-footer__link md-footer__link--next" aria-label="Next: Release Notes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Release Notes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="../js/chat.js"></script>
+      
+        <script src="../js/sidecar-1.5.0.js"></script>
+      
+    
+  </body>
+</html>
