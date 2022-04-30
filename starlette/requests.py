@@ -236,10 +236,10 @@ class Request(HTTPConnection):
             self._body = b"".join(chunks)
         return self._body
 
-    async def json(self) -> typing.Any:
+    async def json(self, nullable: bool = False) -> typing.Any:
         if not hasattr(self, "_json"):
             body = await self.body()
-            self._json = json.loads(body)
+            self._json = {} if (body == b'' and nullable) else json.loads(body)
         return self._json
 
     async def form(self) -> FormData:

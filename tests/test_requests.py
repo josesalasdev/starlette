@@ -166,8 +166,20 @@ def test_request_json(test_client_factory):
         await response(scope, receive, send)
 
     client = test_client_factory(app)
-    response = client.post("/", json={"a": "123"})
+    response = client.post("/", json={'a': '123'})
     assert response.json() == {"json": {"a": "123"}}
+
+
+def test_request_json_null(test_client_factory):
+    async def app(scope, receive, send):
+        request = Request(scope, receive)
+        data = await request.json(nullable=True)
+        response = JSONResponse({"json": data})
+        await response(scope, receive, send)
+
+    client = test_client_factory(app)
+    response = client.post("/")
+    assert response.json() == {"json": {}}
 
 
 def test_request_scope_interface():
